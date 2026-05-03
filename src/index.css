@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --color-clay-50: #fff8df;
+  --color-clay-100: #f5ecc8;
+  --color-clay-200: #ddd3ad;
+  --color-clay-500: #b96918;
+  --color-clay-600: #8e4d0c;
+  --color-clay-700: #6d3b11;
+  --color-earth-900: #19130d;
+  --color-moss-200: #e7ebc9;
+  --color-moss-300: #d8dcbd;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    background: #1f1f1f;
+    color: #21180f;
+    font-family: var(--font-sans);
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto min-h-screen w-full max-w-[1120px] bg-clay-50 shadow-2xl shadow-black/25;
+  }
+
+  .container-pad {
+    @apply mx-auto w-full max-w-[960px] px-5 sm:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply text-[10px] font-semibold uppercase tracking-[0.18em] text-clay-500;
+  }
+
+  .section-title {
+    @apply font-display text-2xl font-bold leading-tight text-earth-900 sm:text-3xl;
+  }
+
+  .body-copy {
+    @apply text-sm leading-6 text-earth-900/65;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-9 items-center justify-center rounded-sm bg-clay-600 px-5 text-xs font-bold text-white transition hover:bg-clay-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay-600;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-9 items-center justify-center rounded-sm border border-earth-900/20 bg-white/70 px-5 text-xs font-bold text-earth-900 transition hover:border-clay-600 hover:text-clay-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay-600;
+  }
+
+  .glass-panel {
+    @apply border border-white/20 bg-earth-900/45 shadow-xl shadow-black/25 backdrop-blur-sm;
+  }
+
+  .field {
+    @apply w-full rounded-sm border border-earth-900/15 bg-white px-3 py-2 text-xs text-earth-900 outline-none transition placeholder:text-earth-900/35 focus:border-clay-600 focus:ring-2 focus:ring-clay-500/20;
+  }
+}
