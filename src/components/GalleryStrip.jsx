@@ -3,7 +3,7 @@ import { galleryImages } from '../data/potteryData'
 export default function GalleryStrip() {
   return (
     <section className="bg-clay-50 py-8">
-      <div className="container-pad">
+      <div className="container-pad" data-aos="fade-up">
         <div className="mb-5 text-center">
           <p className="eyebrow">Pottery.id</p>
           <p className="mt-1 text-xs text-earth-900/55">

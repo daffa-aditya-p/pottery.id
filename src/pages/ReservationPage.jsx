@@ -8,7 +8,7 @@ export default function ReservationPage() {
     <main>
       <section className="bg-clay-50 py-14">
         <div className="container-pad grid items-center gap-10 lg:grid-cols-[1fr_420px]">
-          <div>
+          <div data-aos="fade-right">
             <p className="eyebrow mb-2">Reservasi Sekarang</p>
             <h1 className="font-display text-4xl font-bold leading-tight text-earth-900 sm:text-5xl">
               Tempa Warisanmu Sendiri
@@ -26,7 +26,7 @@ export default function ReservationPage() {
               </button>
             </div>
           </div>
-          <div className="aspect-[4/3] overflow-hidden rounded-sm shadow-xl shadow-earth-900/15">
+          <div className="aspect-[4/3] overflow-hidden rounded-sm shadow-xl shadow-earth-900/15" data-aos="flip-right">
             <img
               src={images.hero}
               alt="Tangan membentuk tanah liat di atas wheel"
@@ -37,7 +37,7 @@ export default function ReservationPage() {
       </section>
 
       <section className="bg-moss-300 py-16">
-        <div className="container-pad">
+        <div className="container-pad" data-aos="fade-up" data-aos-duration="800">
           <SectionHeader
             align="center"
             eyebrow="Ciptakan Karya Agung Anda"
@@ -51,19 +51,23 @@ export default function ReservationPage() {
       </section>
 
       <section className="bg-clay-50 py-16">
-        <div className="container-pad">
-          <SectionHeader
+        <div className="container-pad" >
+          <div data-aos="fade-right">
+            <SectionHeader
             align="center"
             eyebrow="Kalender Lokakarya"
             title="Pilih tanggal yang cocok"
             description="Slot studio ditandai supaya pengunjung langsung paham ketersediaan kelas."
           />
-          <WorkshopCalendar />
+          </div>
+          <div data-aos="flip-right">
+            <WorkshopCalendar />
+          </div>
         </div>
       </section>
 
       <section className="bg-moss-300 py-16">
-        <div className="container-pad grid gap-10 lg:grid-cols-[1fr_420px]">
+        <div className="container-pad grid gap-10 lg:grid-cols-[1fr_420px]" data-aos="fade-up" data-aos-duration="700">
           <div>
             <p className="eyebrow mb-2">Mari Berkoneksi Bersama</p>
             <h2 className="section-title">Kami siap menjawab sebelum kamu datang</h2>
@@ -85,7 +89,7 @@ export default function ReservationPage() {
       </section>
 
       <section className="bg-clay-50 py-14">
-        <div className="container-pad max-w-3xl">
+        <div className="container-pad max-w-3xl" data-aos="fade-left">
           <h2 className="section-title text-center">Pertanyaan Umum</h2>
           <div className="mt-8 divide-y divide-earth-900/10 border-y border-earth-900/10">
             {faqs.map((question) => (

@@ -17,7 +17,7 @@ function HeroSection({ onNavigate }) {
         backgroundSize: 'cover',
       }}
     >
-      <div className="container-pad flex min-h-[560px] items-center py-20">
+      <div className="container-pad flex min-h-[560px] items-center py-20" data-aos="fade-right">
         <div className="glass-panel max-w-[380px] p-7 text-white">
           <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-clay-100">
             Handmade Ceramic Studio
@@ -54,7 +54,7 @@ function HeroSection({ onNavigate }) {
 function InnovationSection() {
   return (
     <section className="bg-clay-50 py-16">
-      <div className="container-pad grid items-center gap-10 lg:grid-cols-[1fr_360px]">
+      <div className="container-pad grid items-center gap-10 lg:grid-cols-[1fr_360px]" data-aos="fade-rightx\">
         <div className="max-w-xl">
           <p className="eyebrow mb-2">Tradisi Bertemu Ide Baru</p>
           <h2 className="section-title">Inovasi Digital dalam Setiap Sentuhan</h2>
@@ -75,7 +75,7 @@ function InnovationSection() {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative" data-aos="flip-right">
           <div className="aspect-[4/3] overflow-hidden rounded-sm shadow-xl shadow-earth-900/15">
             <img
               src={images.studio}
@@ -95,7 +95,7 @@ function InnovationSection() {
 function ProductPreview({ onNavigate }) {
   return (
     <section className="bg-white py-16">
-      <div className="container-pad">
+      <div className="container-pad" data-aos="fade-right">
         <SectionHeader
           eyebrow="Klasik Terpilih"
           title="Koleksi rumah yang terasa hidup"
@@ -110,9 +110,16 @@ function ProductPreview({ onNavigate }) {
             </button>
           }
         />
+
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {featuredProducts.map((product) => (
-            <ProductCard key={product.name} product={product} />
+            <div
+            key={product.name}
+            data-aos="flip-right"
+            >
+            
+              <ProductCard key={product.name} product={product} />
+            </div>
           ))}
         </div>
       </div>
@@ -124,7 +131,7 @@ function WorkshopSection({ onNavigate }) {
   return (
     <section className="bg-moss-300 py-14">
       <div className="container-pad grid items-center gap-8 lg:grid-cols-[1fr_360px]">
-        <div>
+        <div data-aos="fade-right">
           <p className="eyebrow mb-2">Studio Experience</p>
           <h2 className="section-title">Sentuhan Langsung dengan Tanah Liat</h2>
           <p className="body-copy mt-4">
@@ -139,7 +146,7 @@ function WorkshopSection({ onNavigate }) {
             Reservasi Sekarang
           </button>
         </div>
-        <div className="aspect-[16/10] overflow-hidden rounded-sm shadow-xl shadow-earth-900/15">
+        <div className="aspect-[16/10] overflow-hidden rounded-sm shadow-xl shadow-earth-900/15" data-aos="flip-right">
           <img
             src={images.workshop}
             alt="Peserta lokakarya membuat keramik"

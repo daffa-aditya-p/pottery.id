@@ -5,6 +5,9 @@ import AboutPage from './pages/AboutPage'
 import CatalogPage from './pages/CatalogPage'
 import HomePage from './pages/HomePage'
 import ReservationPage from './pages/ReservationPage'
+import { useEffect } from "react"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 const pages = {
   home: HomePage,
@@ -14,6 +17,14 @@ const pages = {
 }
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      disable: false,
+    })
+  }, [])
+
   const [activePage, setActivePage] = useState('home')
 
   const Page = useMemo(() => pages[activePage] ?? HomePage, [activePage])

@@ -3,7 +3,7 @@ import { images, processSteps } from '../data/potteryData'
 
 function StoryCard() {
   return (
-    <div className="grid overflow-hidden rounded-sm bg-white shadow-xl shadow-earth-900/10 lg:grid-cols-[0.9fr_1.1fr]">
+    <div className="grid overflow-hidden rounded-sm bg-white shadow-xl shadow-earth-900/10 lg:grid-cols-[0.9fr_1.1fr]" data-aos="fade-up" data-aos-duration="750">
       <div className="min-h-72">
         <img
           src={images.founder}
@@ -53,7 +53,7 @@ export default function AboutPage() {
         }}
       >
         <div className="container-pad flex min-h-[430px] items-center justify-center py-16 text-center text-white">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl" data-aos="fade-up">
             <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-clay-100">
               Tentang Kami
             </p>
@@ -76,11 +76,14 @@ export default function AboutPage() {
 
       <section className="bg-white py-16">
         <div className="container-pad">
-          <SectionHeader
+          <div data-aos="fade-right">
+            <SectionHeader
             eyebrow="Kualitas Bahan"
             title="Dari material lokal sampai pembakaran akhir"
             description="Bagian ini mengikuti komposisi panjang pada halaman Tentang: gambar bergantian dengan narasi proses."
           />
+          </div>
+        
           <div className="grid gap-10">
             {processSteps.map((step, index) => (
               <article
@@ -89,7 +92,7 @@ export default function AboutPage() {
                   index % 2 === 1 ? 'lg:[&>div:first-child]:order-2' : ''
                 }`}
               >
-                <div className="aspect-[16/10] overflow-hidden rounded-sm bg-moss-200">
+                <div className="aspect-[16/10] overflow-hidden rounded-sm bg-moss-200" data-aos={index % 2 === 0 ? "flip-left" : "flip-right"}>
                   <img
                     src={step.image}
                     alt={step.title}
@@ -97,7 +100,7 @@ export default function AboutPage() {
                     loading="lazy"
                   />
                 </div>
-                <div>
+                <div  data-aos={index % 2 === 0 ? "fade-right" : "fade-left"} data-aos-duration="800">
                   <p className="eyebrow mb-2">0{index + 1}</p>
                   <h3 className="font-display text-2xl font-bold text-earth-900">
                     {step.title}

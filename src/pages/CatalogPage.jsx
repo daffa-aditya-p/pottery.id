@@ -9,11 +9,13 @@ export default function CatalogPage() {
     <main>
       <section className="bg-clay-50 py-14">
         <div className="container-pad">
-          <SectionHeader
+          <div data-aos="fade-right">
+            <SectionHeader
             eyebrow="Katalog"
             title="Koleksi Kami"
             description="Kumpulan produk handmade yang tampil dalam frame katalog Figma: grid rapi, filter kategori, dan kartu produk bernuansa tanah."
           />
+          </div>
           <div className="mb-8 flex flex-wrap gap-2">
             {filters.map((filter, index) => (
               <button
@@ -31,7 +33,10 @@ export default function CatalogPage() {
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {catalogProducts.map((product) => (
-              <ProductCard key={product.name} product={product} compact />
+              <div data-aos="flip-right">
+                <ProductCard key={product.name} product={product} compact />
+              </div>
+              
             ))}
           </div>
           <div className="mt-10 text-center">
