@@ -45,7 +45,7 @@
 
 @layer components {
   .page-shell {
-    @apply mx-auto min-h-screen w-full max-w-[1120px] bg-clay-50 shadow-2xl shadow-black/25;
+    @apply mx-auto min-h-screen w-full bg-clay-50 shadow-2xl shadow-black/25;
   }
 
   .container-pad {

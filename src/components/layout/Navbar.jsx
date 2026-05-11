@@ -15,7 +15,7 @@ function Logo() {
 
 export default function Navbar({ activePage, onNavigate }) {
   return (
-    <header className="sticky top-0 z-30 border-b border-earth-900/10 bg-white/92 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-earth-900/5 bg-white/40 backdrop-blur-xl">
       <div className="container-pad flex h-14 items-center justify-between gap-4">
         <button
           type="button"
