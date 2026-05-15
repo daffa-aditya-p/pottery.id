@@ -65,30 +65,50 @@ function HeroSection({ onNavigate }) {
   )
 }
 
-function InnovationSection() {
+function CheckIcon() {
   return (
-    <section className="bg-white py-24">
-      <div className="container-pad grid items-center gap-16 lg:grid-cols-[1fr_400px]" data-aos="fade-up">
+    <svg className="mt-0.5 h-5 w-5 shrink-0 text-clay-600" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  )
+}
+
+function InnovationSection() {
+  const points = [
+    "Sistem manajemen inventaris digital yang presisi untuk efisiensi produksi.",
+    "Integrasi pasar langsung untuk memastikan kesejahteraan ekonomi perajin.",
+    "Sertifikasi Keaslian Digital untuk menjamin otentisitas setiap karya seni."
+  ];
+
+  return (
+    <section className="bg-[#f6f9e6] py-24 sm:py-32">
+      <div className="container-pad grid items-center gap-16 lg:grid-cols-[1.1fr_1fr]" data-aos="fade-up">
         <div className="max-w-xl">
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-earth-900/40 mb-4">// Inovasi Modern</p>
-          <h2 className="font-display text-4xl font-bold text-earth-900">Sentuhan Presisi</h2>
-          <p className="mt-6 text-sm leading-relaxed text-earth-900/60">
-            Pottery.id mendokumentasikan proses pembuatan, katalog, dan reservasi lokakarya secara digital tanpa menghilangkan rasa personal dari benda buatan tangan.
+          <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-clay-600 mb-4">
+            TRANSFORMASI DIGITAL
           </p>
-          <div className="mt-10 border-t border-earth-900/10 pt-6">
-            <div className="grid gap-3">
-              {craftNotes.map((note) => (
-                <div key={note} className="flex gap-4 items-start">
-                  <span className="font-mono text-xs text-earth-900/40 mt-0.5">0{craftNotes.indexOf(note)+1}</span>
-                  <p className="text-sm font-medium text-earth-900/80">{note}</p>
-                </div>
-              ))}
-            </div>
+          <h2 className="font-display text-3xl font-bold leading-tight text-earth-900 sm:text-[34px]">
+            Inovasi Digital dalam Setiap Sentuhan
+          </h2>
+          <p className="mt-6 text-[14px] leading-[1.8] text-earth-900/70">
+            Kami menghubungkan kearifan lokal Indonesia dengan sistem manajemen global yang canggih. Melalui digitalisasi inventaris yang presisi dan pemantauan rantai pasok secara real-time, kami memberdayakan perajin untuk menjaga kualitas warisan leluhur sambil memenuhi kebutuhan pasar modern secara efisien.
+          </p>
+          <div className="mt-8 grid gap-5">
+            {points.map((point, index) => (
+              <div key={index} className="flex gap-4 items-start">
+                <CheckIcon />
+                <p className="text-[13px] leading-relaxed text-earth-900/80">{point}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="relative aspect-[4/5] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-          <img src={images.studio} alt="Studio keramik" className="h-full w-full object-cover" />
+        <div className="relative mx-auto w-full max-w-[500px]">
+          <img 
+            src="/foto1.png" 
+            alt="Inovasi Digital" 
+            className="w-full rounded-[16px] shadow-xl object-cover" 
+          />
         </div>
       </div>
     </section>
@@ -96,29 +116,88 @@ function InnovationSection() {
 }
 
 function ProductPreview({ onNavigate }) {
-  return (
-    <section className="bg-[#F5F5F7] py-24">
-      <div className="container-pad" data-aos="fade-up">
-        <SectionHeader
-          eyebrow="// Klasik Terpilih"
-          title="Koleksi Esensial"
-          description="Karya minimalis untuk ruang hidup modern. Didesain dengan tenang."
-          action={
-            <button
-              type="button"
-              className="text-[10px] uppercase tracking-widest font-bold text-earth-900 border-b border-earth-900 pb-1 hover:text-earth-900/60"
-              onClick={() => onNavigate('catalog')}
-            >
-              Lihat Lengkap →
-            </button>
-          }
-        />
+  const products = [
+    {
+      name: "Vas Tanah Sunda",
+      price: "$125",
+      description: "Dikerjakan tangan dengan motif berlian tradisional yang autentik.",
+      image: "/vasTanahSunda.png"
+    },
+    {
+      name: "Piring Tengah Malam",
+      price: "$85",
+      description: "Set berisi 4 piring makan arang dengan tekstur matte yang elegan.",
+      image: "/piringtengahmalam.png"
+    },
+    {
+      name: "Kendi Vulkanik",
+      price: "$145",
+      description: "Inspirasi tekstur kawah Gunung Bromo dalam satu mahakarya.",
+      image: "/kendivulkanik.png"
+    },
+    {
+      name: "Teko Aliran Tenang",
+      price: "$150",
+      description: "Desain kontemporer dengan gagang anyaman rotan yang ergonomis.",
+      image: "/tekoalirantenang.png"
+    }
+  ];
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-12">
-          {featuredProducts.map((product) => (
-            <div key={product.name} className="group">
-              <ProductCard product={product} />
-            </div>
+  return (
+    <section className="bg-white py-24 sm:py-32">
+      <div className="container-pad" data-aos="fade-up">
+        {/* Header Section */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+          <div>
+            <h2 className="font-display text-3xl font-bold leading-tight text-earth-900 sm:text-[32px]">
+              Klasik Terpilih
+            </h2>
+            <p className="mt-3 text-[13px] leading-relaxed text-earth-900/60 max-w-md">
+              Karya terbaik kami, dibentuk secara manual dengan ketelitian tinggi.
+            </p>
+          </div>
+          <button
+            type="button"
+            className="group flex items-center gap-2 text-[12px] font-bold text-clay-600 transition hover:text-clay-700"
+            onClick={() => onNavigate('catalog')}
+          >
+            Lihat Seluruh Katalog
+            <span className="transition-transform group-hover:translate-x-1">→</span>
+          </button>
+        </div>
+
+        {/* Product Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-12">
+          {products.map((product) => (
+            <article key={product.name} className="group flex flex-col rounded-[4px] border border-[#E5E5E5] bg-white p-4 shadow-sm transition hover:shadow-md">
+              <div className="overflow-hidden bg-[#F4F4F4] aspect-[4/5] rounded-[2px]">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div className="flex flex-col flex-1 pt-5">
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="font-display text-[17px] font-bold leading-tight text-earth-900">
+                    {product.name}
+                  </h3>
+                  <span className="text-[12px] font-bold text-clay-500 shrink-0 mt-0.5">
+                    {product.price}
+                  </span>
+                </div>
+                <p className="mt-3 mb-6 flex-1 text-[13px] leading-[1.6] text-earth-900/60">
+                  {product.description}
+                </p>
+                <button 
+                  type="button" 
+                  className="w-full rounded-[2px] border border-earth-900/20 py-2.5 text-[11px] font-bold text-earth-900 transition hover:border-clay-600 hover:text-clay-600 focus-visible:outline-clay-600"
+                >
+                  Tambah ke Koleksi
+                </button>
+              </div>
+            </article>
           ))}
         </div>
       </div>
@@ -128,24 +207,30 @@ function ProductPreview({ onNavigate }) {
 
 function WorkshopSection({ onNavigate }) {
   return (
-    <section className="bg-[#111111] py-32 text-white">
-      <div className="container-pad grid items-center gap-16 lg:grid-cols-[1fr_500px]">
+    <section className="bg-[#EAE7D9] py-24 sm:py-32">
+      <div className="container-pad grid items-center gap-16 lg:grid-cols-[1fr_1.1fr]">
         <div data-aos="fade-right">
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40 mb-4">// Experience</p>
-          <h2 className="font-display text-5xl font-bold">Studio Session</h2>
-          <p className="mt-6 max-w-md text-sm leading-relaxed text-white/60">
-            Datang ke studio untuk mencoba wheel throwing, glazing, atau membentuk karya pertama dengan pendampingan pengrajin profesional kami.
+          <h2 className="font-display text-4xl sm:text-[42px] font-bold leading-[1.1] text-earth-900 max-w-sm">
+            Sentuhan Langsung dengan Tanah Liat
+          </h2>
+          <p className="mt-6 max-w-[420px] text-[13px] leading-[1.8] text-earth-900/70">
+            Mari bergabung bersama maestro kami dalam lokakarya imersif. Pelajari teknik putar tradisional dan rahasia glasir yang telah diwariskan lintas generasi.
           </p>
           <button
             type="button"
-            className="mt-10 rounded-none border border-white/20 bg-transparent px-8 py-4 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-colors"
+            className="mt-10 rounded-[8px] bg-[#6d3b11] px-6 py-3.5 text-[12px] font-bold text-white transition hover:bg-[#8e4d0c] shadow-sm"
             onClick={() => onNavigate('reservation')}
           >
-            Reservasi Tempat
+            Reservasi Sesi Anda
           </button>
         </div>
-        <div className="aspect-video overflow-hidden grayscale opacity-80" data-aos="fade-left">
-          <img src={images.workshop} alt="Workshop" className="h-full w-full object-cover" loading="lazy" />
+        <div className="relative w-full" data-aos="fade-left">
+          <img 
+            src="/bikingerabah.png" 
+            alt="Lokakarya Keramik" 
+            className="w-full rounded-[20px] object-cover shadow-lg aspect-[4/3] sm:aspect-[16/11]" 
+            loading="lazy" 
+          />
         </div>
       </div>
     </section>
