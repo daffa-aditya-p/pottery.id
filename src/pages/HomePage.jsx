@@ -12,54 +12,52 @@ const PotteryScene = lazy(() => import('../components/PotteryScene'))
 
 function HeroSection({ onNavigate }) {
   return (
-    <section className="relative h-screen w-full bg-transparent">
-      {/* Igloo-style minimal corner layout. Center is empty for the 3D pottery */}
-      <div className="absolute inset-0 pointer-events-none p-6 md:p-12 flex flex-col justify-between z-10">
-        
-        {/* Top Header Area */}
-        <div className="flex justify-between items-start w-full">
-          {/* Top Left: Main Branding */}
-          <div className="max-w-xs" data-aos="fade-right">
-            <h1 className="font-display text-4xl md:text-5xl font-black text-earth-900 tracking-tight leading-none mix-blend-difference text-white">
+    <section className="relative w-full min-h-[100svh] bg-transparent md:min-h-screen">
+      <div className="pointer-events-none absolute inset-x-0 top-[52%] z-10 h-[45svh] -translate-y-1/2 md:hidden">
+        <div className="mx-auto h-full w-[90vw] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.28)_0%,rgba(255,255,255,0.1)_36%,rgba(255,255,255,0)_72%)]" />
+      </div>
+
+      {/* Stable mobile grid: top / center-safe-space / bottom */}
+      <div className="relative z-20 grid min-h-[100svh] grid-rows-[auto_1fr_auto] px-5 pb-6 pt-5 md:min-h-screen md:px-12 md:pb-10 md:pt-8">
+        <div className="flex w-full items-start justify-between gap-4">
+          <div className="max-w-[70vw] sm:max-w-xs" data-aos="fade-right">
+            <h1 className="font-display text-[36px] font-black leading-none tracking-tight text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.45)] md:text-5xl md:mix-blend-difference">
               ARTABUMI
             </h1>
-            <div className="mt-4 font-mono text-[10px] uppercase tracking-widest text-earth-900/60 mix-blend-difference text-white/60">
+            <div className="mt-3 font-mono text-[10px] uppercase tracking-widest text-white/80 md:mt-4 md:text-white/60 md:mix-blend-difference">
               <p>// Est. 2024</p>
               <p>Handmade Ceramic Studio.</p>
               <p>All Rights Reserved.</p>
             </div>
           </div>
 
-          {/* Top Right: Manifesto / Description */}
-          <div className="max-w-xs text-right hidden sm:block" data-aos="fade-left">
-            <p className="font-mono text-[10px] uppercase tracking-widest text-earth-900/60 mix-blend-difference text-white/60">
+          <div className="hidden max-w-xs text-right sm:block" data-aos="fade-left">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-white/65 md:mix-blend-difference">
               ////// Manifesto
             </p>
-            <p className="mt-3 text-xs leading-loose text-earth-900 font-medium mix-blend-difference text-white text-justify" style={{ textAlignLast: 'right' }}>
+            <p className="mt-3 text-xs font-medium leading-loose text-white md:mix-blend-difference text-justify" style={{ textAlignLast: 'right' }}>
               Tradisi yang dibentuk kembali. Misi kami adalah membangun standar baru dalam dunia artisan, menggabungkan teknik keramik tradisional dengan presisi desain modern.
             </p>
           </div>
         </div>
 
-        {/* Bottom Area */}
-        <div className="flex justify-between items-end w-full">
-          {/* Bottom Left: Audio / Sub-actions (Visual only to match igloo style) */}
-          <div className="font-mono text-[10px] uppercase tracking-widest text-earth-900/60 mix-blend-difference text-white/60">
+        <div />
+
+        <div className="flex w-full items-end justify-between gap-4">
+          <div className="font-mono text-[10px] uppercase tracking-widest text-white/75 md:text-white/60 md:mix-blend-difference">
             <p>Scroll to explore ↓</p>
           </div>
 
-          {/* Bottom Right: Main Action */}
           <div className="pointer-events-auto" data-aos="fade-up">
             <button
               type="button"
-              className="rounded-none border border-earth-900/20 bg-white/10 backdrop-blur-md px-8 py-3 text-[10px] font-bold uppercase tracking-[0.2em] text-earth-900 mix-blend-difference text-white hover:bg-white hover:text-black hover:mix-blend-normal transition-all"
+              className="rounded-none border border-white/35 bg-white/10 px-6 py-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-md transition-all hover:bg-white hover:text-black sm:px-8"
               onClick={() => onNavigate('catalog')}
             >
               Eksplorasi Koleksi
             </button>
           </div>
         </div>
-
       </div>
     </section>
   )
@@ -245,10 +243,11 @@ export default function HomePage({ onNavigate }) {
         <Suspense fallback={null}>
           <PotteryScene />
         </Suspense>
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(255,255,255,0.08),rgba(232,230,225,0.84)_62%)]" />
       </div>
 
       {/* Main Content Overlay */}
-      <div className="relative z-10">
+      <div className="relative z-10 overflow-x-clip">
         <HeroSection onNavigate={onNavigate} />
         <InnovationSection />
         <ProductPreview onNavigate={onNavigate} />

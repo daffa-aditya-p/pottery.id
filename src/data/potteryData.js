@@ -4,6 +4,7 @@ const photo = (id, width = 900, height = 700) =>
 export const navItems = [
   { id: 'home', label: 'Beranda' },
   { id: 'catalog', label: 'Katalog' },
+  { id: 'potteryai', label: 'PotteryAI' },
   { id: 'reservation', label: 'Reservasi' },
   { id: 'about', label: 'Tentang' },
 ]

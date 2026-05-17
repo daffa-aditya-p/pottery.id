@@ -1,16 +1,19 @@
-# React + Vite
+# Pottery.id
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website Pottery.id berbasis React + Vite, dengan halaman chatbot `PotteryAI` yang terhubung ke OpenRouter.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Copy env:
+   - `cp .env.example .env`
+2. Isi nilai penting di `.env`:
+   - `VITE_OPENROUTER_API_KEY`
+   - Opsional: `VITE_OPENROUTER_MODEL`, `VITE_OPENROUTER_SITE_URL`, `VITE_OPENROUTER_SITE_TITLE`, `VITE_POTTERYAI_SYSTEM_PROMPT`
+3. Jalankan project:
+   - `npm install`
+   - `npm run dev`
 
-## React Compiler
+## Catatan Keamanan
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Jangan commit file `.env`.
+- Karena ini Vite client-side, nilai `VITE_*` ikut terkirim ke browser. Untuk production yang aman, pindahkan call OpenRouter ke backend/proxy API milik Anda.

@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar'
 import AboutPage from './pages/AboutPage'
 import CatalogPage from './pages/CatalogPage'
 import HomePage from './pages/HomePage'
+import PotteryAIPage from './pages/PotteryAIPage'
 import ReservationPage from './pages/ReservationPage'
 import { useEffect } from "react"
 import AOS from "aos"
@@ -12,6 +13,7 @@ import "aos/dist/aos.css"
 const pages = {
   home: HomePage,
   catalog: CatalogPage,
+  potteryai: PotteryAIPage,
   reservation: ReservationPage,
   about: AboutPage,
 }
